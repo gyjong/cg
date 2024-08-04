@@ -41,6 +41,7 @@
    * 📁 img/                - Directory for image file storage
    * 📁 index_sanction/     - Sanction-related index data
    * 📁 index_vsa/          - VSA (Vessel Sharing Agreement) index data
+   * 📁 sample_bookings/    - Sample booking data in pdf format
    * 📄 _booking_data_receiver.py     - Booking data receiver module
    * 📄 _coastal_schedule_monitor.py  - Coastal schedule monitoring module
    * 📄 _compliance_checker.py        - Compliance checking module
@@ -65,4 +66,4 @@
 | 2024-08-05 | containergenie 0.15      | Initial release for google api competition                        |
 
 
-
+## 
