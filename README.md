@@ -39,7 +39,6 @@
    * 📁 data_credit/        - Directory for credit-related data storage
    * 📁 data_schedule/      - Directory for schedule-related data storage
    * 📁 img/                - Directory for image file storage
-   * 📁 index_imdg/         - IMDG (International Maritime Dangerous Goods) index data
    * 📁 index_sanction/     - Sanction-related index data
    * 📁 index_vsa/          - VSA (Vessel Sharing Agreement) index data
    * 📄 _booking_data_receiver.py     - Booking data receiver module
@@ -48,8 +47,6 @@
    * 📄 _contingency_simulator.py     - Contingency situation simulator module
    * 📄 _credit_checker.py            - Credit checking module
    * 📄 _genie_integrator.py          - Genie integration module
-   * 📄 _genie_rewoo.py               - Genie ReWOO module
-   * 📄 _imdg_story.py                - IMDG-related story module
    * 📄 _schedule_coordinator.py      - Schedule coordination module
    * 📄 _vsa_validator.py             - VSA validation module
    * 📄 .env_sample         - Sample environment variables configuration file
@@ -63,27 +60,9 @@
 
 ## 🕰️ Version History
 
-| Date       | Version                  | Description                                                        |
+| Date       | Version                  | Description                                                       |
 |------------|--------------------------|-------------------------------------------------------------------|
-| 2024-07-07 | containergenie_0.01.py   | First ContainerGenie for vessel schedule delay checker             |
-| 2024-07-08 | containergenie_0.02_gemini.py | Google Gemini-1.5-pro LLM based version                       |
-| 2024-07-09 | my_first_langgraph.ipynb | Test LangGraph with simple agent and node                          |
-| 2024-07-10 | containergenie_0.03.py   | First Streamlit application                                        |
-| 2024-07-13 | containergenie 0.04      | Added IMDG Q&A story                                               |
-| 2024-07-16 | containergenie 0.05      | Renewed menu structure (series_story_chapter_episode)              |
-|            |                          | Rebuilt pyproject.toml for package dependencies                    |
-| 2024-07-17 | containergenie 0.06      | Added chapters for credit checker and schedule coordinator         |
-| 2024-07-18 | containergenie 0.07      | Adapted genie integrator and added chapter for VSA validator       |
-|            |                          | (unstable version)                                                 |
-| 2024-07-21 | containergenie 0.08      | Adapted genie ReWOO for trial Reasoning WithOut Observation        |
-| 2024-07-22 | containergenie 0.09      | Adapted Domain Specific Cognitive Architecture in Simulation       |
-| 2024-07-22 | containergenie 0.10      | Added chapter for booking remark handler in booking story          |
-| 2024-07-24 | containergenie 0.11      | More selection LLM for LLama3.1                                    |
-| 2024-07-28 | containergenie 0.12      | Applied prompt hub via HuggingGace and                             |
-|            |                          | updated pandas agent for OpenAI                                    |
-| 2024-07-28 | containergenie 0.13      | Added channel 'booking_data_receiver'                              |
-| 2024-07-29 | containergenie 0.14      | Upgraded channel 'booking_data_receiver'                           |
-| 2024-08-01 | containergenie 0.15      | Updated sanction and VSA data                                      |
+| 2024-08-05 | containergenie 0.15      | Initial release for google api competition                        |
 
 
 
