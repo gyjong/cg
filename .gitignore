@@ -1,0 +1,8 @@
+# environment variables
+.env
+learn*.*
+*_backup.py
+*.pdf
+
+/simulated_inbox
+/simulated_outbox
