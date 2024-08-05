@@ -3,6 +3,8 @@
 learn*.*
 *_backup.py
 *.pdf
+*.DS_Store
+*.lock
 
 /simulated_inbox
 /simulated_outbox
