@@ -8,3 +8,4 @@ learn*.*
 
 /simulated_inbox
 /simulated_outbox
+/__pycache__
