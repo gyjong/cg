@@ -6,7 +6,6 @@ import pandas as pd
 from langchain import hub
 from langchain_core.prompts import ChatPromptTemplate
 from typing import List, Dict, TypedDict, Any
-from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 from langgraph.graph import StateGraph, END
@@ -27,21 +26,13 @@ coastal_schedule = pd.read_csv('./data_schedule/coastal_schedule-Table 1.csv')
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.0)
 
 # Create pandas dataframe agent
-if isinstance(llm, ChatOpenAI):
-    pandas_agent = create_pandas_dataframe_agent(
-        llm,
-        coastal_schedule,
-        verbose=True,
-        agent_type=AgentType.OPENAI_FUNCTIONS,
-        allow_dangerous_code=True
-    )
-else:
-    pandas_agent = create_pandas_dataframe_agent(
-        llm,
-        coastal_schedule,
-        verbose=True,
-        allow_dangerous_code=True
-    )
+
+pandas_agent = create_pandas_dataframe_agent(
+    llm,
+    coastal_schedule,
+    verbose=True,
+    allow_dangerous_code=True
+)
 
 # Define the prompt templates
 analysis_prompt = """ You are a container vessel schedule expert with deep knowledge of maritime operations. You have access to a dataframe containing information about vessel voyages, schedules, and performance metrics.
