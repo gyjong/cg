@@ -154,7 +154,15 @@ workflow.add_edge("summarize_responses", END)
 # Compile the graph
 app = workflow.compile()
 
-
+# Function for processing main workflows
+def schedule_coordinator(prompt: str):
+    response = app.invoke({
+        "question": prompt,
+        "answer": "",
+        "raw_data": "",
+        "next": ""
+    })
+    return response['answer']
 
 def get_inbox_contents():
     inbox_contents = []

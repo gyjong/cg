@@ -318,6 +318,15 @@ workflow.add_edge("generate", END)
 
 app = workflow.compile()
 
+# Function for processing main workflows
+def vsa_validator(prompt: str):
+    response = app.invoke({
+        "question": prompt,
+        "answer": "",
+        "raw_data": "",
+        "next": ""
+    })
+    return response["generation"]
 
 # Function for processing streamlit questions
 def run_streamlit():

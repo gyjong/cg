@@ -48,22 +48,6 @@ def load_data(file_name: str) -> pd.DataFrame:
         print(f"Current working directory: {os.getcwd()}")
         raise
 
-# Delay detection function
-# def check_delays(state: State) -> State:
-#     delays = []
-#     for _, row in state['coastal_schedule'].iterrows():
-#         eta_delay = pd.Timedelta(row['DELAY_ETA'])
-#         if eta_delay > timedelta(hours=0):
-#             delays.append({
-#                 'port': row['PORT'],
-#                 'delay': eta_delay,
-#                 'original_eta': row['LONG_TERM_SCHEDULE_ETA'],
-#                 'new_eta': row['COASTAL_SCHEDULE_ETA']
-#             })
-#     state['delays'] = delays
-#     state['has_delays'] = len(delays) > 0
-#     return state
-
 def check_delays(state: State) -> State:
     delays = []
     for _, row in state['coastal_schedule'].iterrows():
@@ -218,6 +202,24 @@ workflow.add_edge('report_results', END)
 
 # Graph compilation
 app = workflow.compile()
+
+# Function for processing main workflows
+def contingency_simulator(prompt: str):
+    print(f"Received prompt in simulator: {prompt}")
+    initial_state = State(
+        coastal_schedule=coastal_schedule,
+        simulation_result=simulation.copy(),
+        current_port='',
+        delays=[],
+        has_delays=False,
+        simulation_request={},
+        original_delays="",
+        simulation_results="",
+        analysis_result=""
+    )
+    
+    response = app.invoke(initial_state)
+    return response['analysis_result']
 
 
 # Function for processing streamlit questions

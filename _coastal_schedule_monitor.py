@@ -3,14 +3,13 @@ import streamlit as st
 import datetime
 import uuid
 import pandas as pd
-from langchain import hub
 from langchain_core.prompts import ChatPromptTemplate
 from typing import List, Dict, TypedDict, Any
+from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 from langgraph.graph import StateGraph, END
 from langchain.schema import HumanMessage
-from langchain_groq import ChatGroq
 from langchain_core.output_parsers import StrOutputParser
 from langchain.agents.agent_types import AgentType
 
@@ -21,13 +20,21 @@ coastal_schedule = pd.read_csv('./data_schedule/coastal_schedule-Table 1.csv')
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.0)
 
 # Create pandas dataframe agent
-
-pandas_agent = create_pandas_dataframe_agent(
-    llm,
-    coastal_schedule,
-    verbose=True,
-    allow_dangerous_code=True
-)
+if isinstance(llm, ChatOpenAI):
+    pandas_agent = create_pandas_dataframe_agent(
+        llm,
+        coastal_schedule,
+        verbose=True,
+        agent_type=AgentType.OPENAI_FUNCTIONS,
+        allow_dangerous_code=True
+    )
+else:
+    pandas_agent = create_pandas_dataframe_agent(
+        llm,
+        coastal_schedule,
+        verbose=True,
+        allow_dangerous_code=True
+    )
 
 # Define the prompt templates
 analysis_prompt = """ You are a container vessel schedule expert with deep knowledge of maritime operations. You have access to a dataframe containing information about vessel voyages, schedules, and performance metrics.
@@ -103,10 +110,6 @@ Refined Answer:
 analysis_prompt = ChatPromptTemplate.from_template(analysis_prompt)
 refinement_prompt = ChatPromptTemplate.from_template(refinement_prompt)
 
-# from langchain import hub
-
-# analysis_prompt = hub.pull("containergenie/schedule_monitor_analysis_prompt")
-# refinement_prompt = hub.pull("containergenie/schedule_monitor_refinement_prompt")
 
 # Create the chains
 analysis_chain = analysis_prompt | llm | StrOutputParser()
@@ -183,6 +186,15 @@ workflow.add_edge("refine_result", END)
 # Compile the graph
 app = workflow.compile()
 
+# Function for processing main workflows
+def coastal_monitor(prompt: str):
+    response = app.invoke({
+        "question": prompt,
+        # "answer": "",
+        # "raw_data": "",
+        # "next": ""
+    })
+    return response['answer']
 
 # Function for processing streamlit questions
 def run_streamlit():
