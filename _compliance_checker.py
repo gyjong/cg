@@ -1,3 +1,8 @@
+# Copyright (c) 2024 Tongyang Systems.
+# All rights reserved.
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree.
+
 import os
 import streamlit as st
 import datetime

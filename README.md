@@ -66,4 +66,5 @@
 | 2024-08-05 | containergenie 0.15      | Initial release for google api competition                        |
 
 
-## 
+## Copyright (c) 2024 Tongyang Systems.
+All rights reserved. This project and its source code are proprietary and confidential. Unauthorized copying, modification, distribution, or use of this project, via any medium, is strictly prohibited without the express written permission of the copyright holder.
