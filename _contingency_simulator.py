@@ -12,10 +12,6 @@ from langchain.output_parsers import PydanticOutputParser
 from langchain.pydantic_v1 import BaseModel, Field
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 
-load_dotenv()
-os.environ["LANGCHAIN_TRACING"] = "true"
-os.environ["LANGCHAIN_PROJECT"] = "containergenie.ai"
-
 # Load the dataframe
 coastal_schedule = pd.read_csv('./data_schedule/coastal_schedule-Table 1.csv')
 simulation = pd.read_csv('./data_schedule/simulation_3-Table 1.csv')

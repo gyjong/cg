@@ -15,10 +15,6 @@ import json
 from langgraph.graph.message import AnyMessage, add_messages
 from langgraph.checkpoint.sqlite import SqliteSaver
 
-# Environment setup
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_PROJECT"] = "containergenie.ai"
-
 # Initialize Groq LLM
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.0)
 

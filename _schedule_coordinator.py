@@ -14,10 +14,6 @@ from langchain.prompts import PromptTemplate
 import json
 import time
 
-# LangSmith 
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_PROJECT"] = "containergenie.ai"
-
 # Load the dataframe
 df = pd.read_csv('./data_schedule/simulation_3-Table 1.csv')
 

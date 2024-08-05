@@ -14,10 +14,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain.agents.agent_types import AgentType
 
-# LangSmith 
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_PROJECT"] = "containergenie.ai"
-
 # Load the dataframe
 df = pd.read_csv('./data_credit/chapter_3_credit_checker.csv')
 
