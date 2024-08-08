@@ -1,7 +1,9 @@
 
-# 🚢 ContainerGenie.ai
+# 🚢 ContainerGenie.ai: Driving Efficiency with Gemini, LangChain, RAG, and Intelligent Agent.
 
 📊 Summary of ContainerGenie.ai: The advent of Large Language Models (LLM) represents a transformative leap in the realm of artificial intelligence, acting as a 🧠 brain that can process and understand vast amounts of data. When combined with the capabilities of 🔗 LangChain, 🔍 Retrieval-Augmented Generation (RAG), and 🤖 LLM Agents, these technologies can revolutionize the way container liner solutions operate, paving the way for a future with minimal UI and reduced human intervention.
+
+ContainerGenie.ai is an AI-powered platform that revolutionizes container shipping operations by seamlessly integrating Gemini, LangChain, RAG, and intelligent agent collaboration to automate workflows, optimize logistics, enhance decision-making, and drive efficiency for small to medium-sized container liners.
 
 ## 🌟 Key Features
 
@@ -64,6 +66,34 @@
 | Date       | Version                  | Description                                                       |
 |------------|--------------------------|-------------------------------------------------------------------|
 | 2024-08-05 | containergenie 0.15      | Initial release for google api competition                        |
+
+
+## 🏃 Getting Started with ContainerGenie.ai
+
+1. Set up the environment:
+   Run `poetry install --no-root`
+
+2. Configure API keys:
+   - Rename `.env_sample` to `.env`
+   - Open `.env` and input the required API keys:
+     GOOGLE_API_KEY="YOUR_API_KEY"
+     TAVILY_API_KEY="YOUR_API_KEY"
+     OPENAI_API_KEY="YOUR_API_KEY"
+
+3. Launch the application:
+   Execute `streamlit run containergenie.py`
+
+
+## 👩🏻‍💻👩🏻‍💻 Project Team
+Product Management, Design Pattern, and Architecture: Kenny Jung
+Kenny Jung led the product management and was responsible for designing the architecture and applying design patterns across the application. His expertise ensured that the project aligned with user needs and technical best practices.
+
+Business Flow Engineering: KyoungJong Yoon, YongJae Chae
+KyoungJong Yoon and YongJae Chae were instrumental in developing the business flow engineering for the project. Their work focused on optimizing business processes to ensure the smooth integration of the AI components within the overall business strategy.
+
+LLM, LangChain, LangGraph, and RAG Framework Engineering: Jungwon Yoon, Kyoungpyoo Ham
+Jungwon Yoon and Kyoungpyoo Ham specialized in the engineering of the LLM (Large Language Model), LangChain, LangGraph, and Retrieval-Augmented Generation (RAG) frameworks. Their contributions were crucial in developing the Agentic Workflow application, leveraging these technologies to build a highly effective and scalable AI solution.
+
 
 
 ## Copyright (c) 2024 Tongyang Systems.
