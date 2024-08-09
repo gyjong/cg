@@ -95,7 +95,7 @@ KyoungJong Yoon and YongJae Chae were instrumental in developing the business fl
 
 LLM, LangChain, LangGraph, and RAG Framework Engineering: Jungwon Youn, Kyungpyoo Ham
 
-Jungwon Yoon and Kyoungpyoo Ham specialized in the engineering of the LLM (Large Language Model), LangChain, LangGraph, and Retrieval-Augmented Generation (RAG) frameworks. Their contributions were crucial in developing the Agentic Workflow application, leveraging these technologies to build a highly effective and scalable AI solution.
+Jungwon Youn and Kyungpyoo Ham specialized in the engineering of the LLM (Large Language Model), LangChain, LangGraph, and Retrieval-Augmented Generation (RAG) frameworks. Their contributions were crucial in developing the Agentic Workflow application, leveraging these technologies to build a highly effective and scalable AI solution.
 
 
 
