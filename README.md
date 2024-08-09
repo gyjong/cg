@@ -85,15 +85,15 @@ ContainerGenie.ai is an AI-powered platform that revolutionizes container shippi
 
 
 ## 👩🏻‍💻👩🏻‍💻 Project Team
-Product Management, Design Pattern, and Architecture: Kenny Jung
+- Product Management, Design Pattern, and Architecture: Kenny Jung
 
 Kenny Jung led the product management and was responsible for designing the architecture and applying design patterns across the application. His expertise ensured that the project aligned with user needs and technical best practices.
 
-Business Flow Engineering: KyoungJong Yoon, YongJae Chae
+- Business Flow Engineering: KyoungJong Yoon, YongJae Chae
 
 KyoungJong Yoon and YongJae Chae were instrumental in developing the business flow engineering for the project. Their work focused on optimizing business processes to ensure the smooth integration of the AI components within the overall business strategy.
 
-LLM, LangChain, LangGraph, and RAG Framework Engineering: Jungwon Youn, Kyungpyoo Ham
+- LLM, LangChain, LangGraph, and RAG Framework Engineering: Jungwon Youn, Kyungpyoo Ham
 
 Jungwon Youn and Kyungpyoo Ham specialized in the engineering of the LLM (Large Language Model), LangChain, LangGraph, and Retrieval-Augmented Generation (RAG) frameworks. Their contributions were crucial in developing the Agentic Workflow application, leveraging these technologies to build a highly effective and scalable AI solution.
 
