@@ -126,7 +126,7 @@ Attachment: Revised_Coastal_Schedule.pdf
 
 
 def wait_for_responses(state: State) -> State:
-    time.sleep(1)  # Wait for 10 seconds in the simulation
+    time.sleep(1)  
     responses = receive_simulated_email()
     state['email_responses'] = responses
     return state
@@ -178,15 +178,13 @@ def get_inbox_contents():
                 inbox_contents.append(email_content['body'])
     return "\n\n".join(inbox_contents)
 
-# LLM을 사용하여 inbox 내용을 기반으로 답변을 생성하는 체인을 만듭니다
+# Prompt response
 inbox_prompt = ChatPromptTemplate.from_template(
     "Given the following email responses:\n\n{inbox_contents}\n\nPlease answer the following question: {question}"
 )
 
-# 체인 생성
+# Chain for inbox
 inbox_chain = inbox_prompt | llm | StrOutputParser()
-
-
 
 
 # Function for processing streamlit questions
@@ -216,7 +214,7 @@ def run_streamlit():
                 "next": "",
                 "email_sent": False,
                 "email_responses": [],
-                "sent_emails": []  # 초기 상태에 추가
+                "sent_emails": [] 
             })
         st.success("Simulation completed. Here's the summary of responses:")
         st.write(result['answer'])
@@ -298,20 +296,17 @@ def run_streamlit():
     prompt = st.chat_input("Any question about the received responses?")
 
     if prompt:
-        # 사용자 메시지 추가 및 표시 (이 부분은 그대로 유지)
         user_timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         st.session_state.schedule_messages.append({"role": "user", "content": prompt, "timestamp": user_timestamp})
         
         with st.chat_message("user"):
             st.markdown(f"{prompt}\n\n<div style='font-size:0.8em; color:#888;'>{user_timestamp}</div>", unsafe_allow_html=True)
         
-        # AI 응답 생성
         with st.spinner("Thinking..."):
             inbox_contents = get_inbox_contents()
             response = inbox_chain.invoke({"inbox_contents": inbox_contents, "question": prompt})
             ai_timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
-        # AI 응답 추가 및 표시
         st.session_state.schedule_messages.append({"role": "assistant", "content": response, "timestamp": ai_timestamp})
         with st.chat_message("assistant"):
             st.markdown(f"{response}\n\n<div style='font-size:0.8em; color:#888;'>{ai_timestamp}</div>", unsafe_allow_html=True)
