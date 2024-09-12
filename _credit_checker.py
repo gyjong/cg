@@ -136,7 +136,6 @@ def credit_question(state: State) -> State:
     return state
 
 def use_dataframe_tool(state: State) -> State:
-    # result = pandas_agent.run(state['question'])
     result = pandas_agent.invoke(
             {
                 'input': state['question']
@@ -147,7 +146,6 @@ def use_dataframe_tool(state: State) -> State:
     return state
 
 def use_analysis_chain(state: State) -> State:
-    # pandas_response = pandas_agent.run(state['question'])
     pandas_response = pandas_agent.invoke(
             {
                 'input': state['question']
