@@ -90,7 +90,7 @@ sources = [
 vectorstore = create_or_load_vectorstore(sources)
 
 # Create retriever
-retriever = vectorstore.as_retriever(k=10)
+retriever = vectorstore.as_retriever(search_kwargs={'k': 10})
 
 # Initialize web search tool
 web_search_tool = TavilySearchResults()
@@ -99,21 +99,29 @@ web_search_tool = TavilySearchResults()
 # Define prompt templates and chains
 rag_prompt = PromptTemplate(
     template="""
+    # Your Role
     You are a sanction specialist who has a deep understanding of the sanction policies of the United Nations, European Union, and United Kingdom.
     You are asked to provide detailed information for the questions.
     Use the following pieces of context to answer the users question in details.
 
+    ----------
+    # Instruction
     1. Given the following summaries of a long document and a question, create a final answer with references ("SOURCES[number]"), use "SOURCES[number]" in capital letters regardless of the number of sources you use.
-    2. Provide the information in a clear and concise manner in a way that is easy to understand with enriched explanations as much as possible. 
-    3. Provide the feedback with bullet points to list the information in organized manner.
-    4. If the question is not clear, ask the user to clarify the question.
-    5. If the question is asking about sanction information, please answer with reference to relevant regulations, laws, and case law. The feedback should include the relevant sanction provisions, penalties, and enforcement mechanisms.
-    6. If the question made by Korean, please answer in Korean.
-    7. If the question made by French, please answer in French.
-    8. If you don't know the answer, just say that "I don't know", don't try to make up an answer.
-    Question: {question} 
-    Documents: {documents} 
-    Answer: 
+    2. For each SOURCES reference, include the page number for PDF documents or the URL for web pages in parentheses. `For example: SOURCES[1] (page 5) or SOURCES[2] (https://example.com)`.
+    3. Provide the information in a clear and concise manner in a way that is easy to understand with enriched explanations as much as possible. 
+    4. Provide the feedback with bullet points to list the information in organized manner.
+    5. If the question is not clear, ask the user to clarify the question.
+    6. If the question is asking about sanction information, please answer with reference to relevant regulations, laws, and case law. The feedback should include the relevant sanction provisions, penalties, and enforcement mechanisms.
+    7. If the question made by Korean, please answer in Korean.
+    8. If the question made by French, please answer in French.
+    9. If you don't know the answer, just say that "I don't know", don't try to make up an answer.
+    10. At the end of your response, list all the sources used with their full reference information include the page number for PDF documents or the URL for web pages in parentheses. For example: SOURCES[1] (page 5) or SOURCES[2] (https://example.com).
+    -----------
+    
+    # Question: {question}     
+    # Documents: {documents} 
+
+    # Answer: 
     """,
     
     input_variables=["question", "documents"],

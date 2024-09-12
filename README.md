@@ -72,6 +72,7 @@ ContainerGenie.ai is an AI-powered platform that revolutionizes container shippi
 
 1. Set up the environment:
    Run `poetry install --no-root`
+   Run `poetry shell`
 
 2. Configure API keys:
    - Rename `.env_sample` to `.env`
