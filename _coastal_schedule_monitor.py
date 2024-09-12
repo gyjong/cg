@@ -138,7 +138,6 @@ def route_question(state: State) -> State:
 
 def use_dataframe_tool(state: State) -> State:
     try:
-        # result = pandas_agent.run(state['question'])
         result = pandas_agent.invoke(
             {
                 'input': state['question']
