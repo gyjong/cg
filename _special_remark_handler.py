@@ -96,10 +96,12 @@ web_search_tool = TavilySearchResults()
 # Define prompt templates and chains
 rag_prompt = PromptTemplate(
     template="""
-    You are a booking specialist with extensive knowledge of container shipment. Your task is to provide detailed information in response to questions.
+    You are a booking specialist with extensive knowledge of container shipment. 
+    Your task is to provide detailed information in response to questions.
 
     Instructions:
-    1. Use the provided context to answer the user's question in detail. Reference sources using "SOURCES[number]" in capital letters.
+    1. Use the provided context to answer the user's question in detail. 
+    Reference sources using "SOURCES[number]" in capital letters.
 
     2. Present information clearly and concisely, with enriched explanations to enhance understanding.
 

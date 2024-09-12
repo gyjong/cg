@@ -138,7 +138,11 @@ def route_question(state: State) -> State:
 
 def use_dataframe_tool(state: State) -> State:
     try:
-        result = pandas_agent.run(state['question'])
+        result = pandas_agent.invoke(
+            {
+                'input': state['question']
+            }
+        )
         state['raw_data'] = result
     except Exception as e:
         state['raw_data'] = f"Error occurred: {str(e)}"
@@ -146,7 +150,11 @@ def use_dataframe_tool(state: State) -> State:
     return state
 
 def use_analysis_chain(state: State) -> State:
-    pandas_response = pandas_agent.run(state['question'])
+    pandas_response = pandas_agent.invoke(
+            {
+                'input': state['question']
+            }
+        )
     result = analysis_chain.invoke({
         "question": state['question'],
         "pandas_response": pandas_response

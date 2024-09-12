@@ -90,7 +90,7 @@ sources = [
 vectorstore = create_or_load_vectorstore(sources)
 
 # Create retriever
-retriever = vectorstore.as_retriever(k=10)
+retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
 
 # Initialize web search tool
 web_search_tool = TavilySearchResults()

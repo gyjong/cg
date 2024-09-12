@@ -1,4 +1,4 @@
-# Copyright (c) 2024 Tongyang Systems.
+ # Copyright (c) 2024 Tongyang Systems.
 # All rights reserved.
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
@@ -18,7 +18,7 @@ from typing import List, Dict, Any, Annotated
 from typing_extensions import TypedDict
 import json
 from langgraph.graph.message import AnyMessage, add_messages
-from langgraph.checkpoint.sqlite import SqliteSaver
+# from langgraph.checkpoint.sqlite import SqliteSaver
 
 # Initialize Groq LLM
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.0)
@@ -120,7 +120,7 @@ Important Notes:
 
 # Chain for parsing email
 email_parse_runnable = (
-    {"email_text": RunnablePassthrough()}
+    {"email_text": RunnablePassthrough()} # state 형식에 맞추지 않더라도 자유롭게 그래프를 쓸 수 있음
     | email_read_prompt
     | llm
     | StrOutputParser()
